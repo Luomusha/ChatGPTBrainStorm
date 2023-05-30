@@ -1,0 +1,32 @@
+.ChatList {
+    display: flex;
+    flex-direction: column;
+
+
+    .Message {
+        .UserInfo {
+            display: flex;
+            align-items: center;
+
+            img {
+                max-width: 48px;
+                border-radius: 50%;
+                display: inline-block;
+                width: 48px;
+                height: 48px;
+                background-color: #eee;
+                border: 1px solid #333;
+            }
+        }
+
+        .Data {
+            border: 1px solid #333;
+            border-radius: 8px;
+            background-color: #eee;
+            padding: 8px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+            max-width: 75%;
+        }
+    }
+}
