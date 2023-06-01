@@ -1,0 +1,15 @@
+.Layout {
+    height: 80%;
+    width: 100%;
+    min-height: 600px;
+    padding-top: 100px;
+
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    max-width: 1000px;
+    min-width: 800px;
+    border-radius: 4px;
+    overflow: hidden;
+    flex: 1;
+}

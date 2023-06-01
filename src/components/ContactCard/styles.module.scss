@@ -1,0 +1,19 @@
+.ContactCard {
+    display: flex;
+    flex-direction: row;
+
+    img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .Context {
+        flex: 1;
+
+        .Info {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}
