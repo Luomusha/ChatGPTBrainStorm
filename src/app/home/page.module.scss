@@ -6,5 +6,6 @@
 .DialogDetail {
     flex: 1;
     background-color: #eee;
-
+    display: flex;
+    flex-direction: column;
 }

@@ -1,0 +1,20 @@
+.DialogInput {
+    display: flex;
+    flex-direction: column;
+    height: 180px;
+    margin-right: 19px;
+    border-top: 1px solid #d6d6d6;
+
+    .Tools {
+        display: flex;
+    }
+
+    pre {
+        flex: 1;
+    }
+
+    .Actions {
+        display: flex;
+        justify-content: end;
+    }
+}

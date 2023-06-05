@@ -5,6 +5,7 @@ import { MessageList } from '@/components/MessageList'
 import { ContactCard } from '@/components/ContactCard'
 import { MyCard } from '@/components/UserCard'
 import { DialogTitle } from '@/components/DialogTitle'
+import { DialogInput } from '@/components/DialogInput'
 
 export default function Home() {
   const contacts = [{
@@ -23,7 +24,7 @@ export default function Home() {
     name: "ChatGPT-4"
   }, {
     id: "2222-aaaa-bbbb-cccc",
-    data: "你好",
+    data: "你好.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, molestias! Natus et recusandae delectus incidunt eos odit dolores iste inventore. Delectus inventore modi sed dignissimos dolorem mollitia illo adipisci laborum.",
     avatar: "./vercel.svg",
     name: "ChatGPT-4"
   },]
@@ -34,8 +35,8 @@ export default function Home() {
     </div>
     <div className={styles.DialogDetail}>
       <DialogTitle />
-      <IconButton title="afd">123</IconButton>
       <MessageList messages={messages} />
+      <DialogInput />
     </div>
   </>
 }
