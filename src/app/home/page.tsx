@@ -6,6 +6,7 @@ import { ContactCard } from '@/components/ContactCard'
 import { MyCard } from '@/components/UserCard'
 import { DialogTitle } from '@/components/DialogTitle'
 import { DialogInput } from '@/components/DialogInput'
+import { EmojiCard } from '@/components/EmojiCard'
 
 export default function Home() {
   const contacts = [{
@@ -36,7 +37,9 @@ export default function Home() {
     <div className={styles.DialogDetail}>
       <DialogTitle />
       <MessageList messages={messages} />
-      <DialogInput />
+      <DialogInput >
+        <EmojiCard />
+      </DialogInput>
     </div>
   </>
 }
