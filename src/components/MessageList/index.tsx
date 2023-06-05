@@ -15,9 +15,9 @@ const MessageItem = (props: Message) => {
     return <div className={styles.Message}>
         <div className={styles.UserInfo}>
             <img src={props.avatar} alt="user profile picture" />
-            <div>{props.name}</div>
         </div>
         <div className={styles.Data}>
+            <h4>{props.name}</h4>
             <p>{props.data}</p>
         </div>
     </div>

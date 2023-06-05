@@ -4,29 +4,61 @@
 
 
     .Message {
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+
         .UserInfo {
             display: flex;
             align-items: center;
 
             img {
                 max-width: 48px;
-                border-radius: 50%;
+                border-radius: 2px;
                 display: inline-block;
-                width: 48px;
-                height: 48px;
+                width: 40px;
+                height: 40px;
                 background-color: #eee;
-                border: 1px solid #333;
             }
         }
 
         .Data {
-            border: 1px solid #333;
-            border-radius: 8px;
-            background-color: #eee;
-            padding: 8px;
-            margin-top: 8px;
-            margin-bottom: 16px;
-            max-width: 75%;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+
+            h4 {
+                font-weight: 400;
+                padding-left: 10px;
+                font-size: 12px;
+                height: 22px;
+                line-height: 24px;
+                color: #4f4f4f;
+                width: 350px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                word-wrap: normal;
+                display: inline-block;
+                margin: 0;
+            }
+
+            p {
+                background-color: #fff;
+                border-radius: 8px;
+                padding: 9px 13px;
+                position: relative;
+                font-size: 14px;
+                margin: 0 10px;
+            }
+
+            p:before {
+                position: absolute;
+                top: 14px;
+                border: 6px solid transparent;
+                content: " ";
+            }
         }
     }
 }
