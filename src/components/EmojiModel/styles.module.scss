@@ -1,0 +1,36 @@
+.EmojiModel {
+    // background-color: #f005;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+
+    div {
+        left: 290px;
+        bottom: 190px;
+        position: absolute;
+        max-width: 580px;
+
+        font-size: 24px;
+        background-color: #fff;
+        border-radius: 4px;
+        padding: 16px;
+        border: 1px solid #dedede;
+
+        button {
+            border: none;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            background-color: transparent;
+            border-right: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        button:hover {
+            background-color: #eee;
+        }
+    }
+}

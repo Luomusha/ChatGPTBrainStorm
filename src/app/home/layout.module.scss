@@ -1,14 +1,16 @@
 .Layout {
     height: 80%;
     width: 100%;
+    max-width: 1000px;
+    min-width: 800px;
     min-height: 600px;
 
     margin: auto;
     display: flex;
     flex-direction: row;
-    max-width: 1000px;
-    min-width: 800px;
     overflow: hidden;
     border-radius: 4px;
     flex: 1;
+
+    position: relative;
 }

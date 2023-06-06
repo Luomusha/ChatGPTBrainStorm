@@ -25,6 +25,6 @@ const MessageItem = (props: Message) => {
 
 export const MessageList = (props: MessageItemProps) => {
     return <div className={styles.ChatList}>
-        {props.messages.map(m => <MessageItem {...m} />)}
+        {props.messages.map(m => <MessageItem key={m.id} {...m} />)}
     </div>
 }
