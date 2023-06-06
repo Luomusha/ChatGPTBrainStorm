@@ -41,6 +41,9 @@ export default function Home() {
     }
     setEmojiShow(false)
   }
+  const sendMessage = (message: string) => {
+    console.log(message)
+  }
   return <>
     <div className={styles.FunctionalMenu}>
       <MyCard />
@@ -49,8 +52,10 @@ export default function Home() {
     <div className={styles.DialogDetail}>
       <DialogTitle />
       <MessageList messages={messages} />
-      <DialogInput onEmoji={() => setEmojiShow(true)} />
+      <DialogInput onEmoji={() => setEmojiShow(true)}
+        onSend={sendMessage} />
     </div>
+    {/* Emoji select model */}
     {emojiShow && <EmojiModel onSelect={onEmojiSelect} />}
   </>
 }

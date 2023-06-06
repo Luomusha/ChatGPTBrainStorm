@@ -3,6 +3,7 @@ import styles from "./styles.module.scss"
 
 interface DialogInputProps {
     onEmoji: () => void
+    onSend: (message: string) => void
 }
 export const DialogInput = (props: PropsWithChildren<DialogInputProps>) => {
 
@@ -22,7 +23,7 @@ export const DialogInput = (props: PropsWithChildren<DialogInputProps>) => {
         <pre contentEditable={true} />
         <div className={styles.Actions}>
             <span>按下Cmd+Enter换行</span>
-            <button>发送</button>
+            <button onClick={() => props.onSend("hello")}>发送</button>
         </div>
     </div>
 }
