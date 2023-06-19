@@ -1,0 +1,27 @@
+.MenuTab {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #24272c;
+    padding-bottom: 4px;
+
+    hr {
+        // width: 10px;
+        height: 18px;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        border: none;
+        border-right: 1px solid;
+    }
+
+    button {
+        flex: 1;
+        background-color: transparent;
+        border: none;
+        color: #fff;
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}

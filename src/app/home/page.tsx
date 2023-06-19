@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import styles from './page.module.scss'
 import { IconButton } from '@/components/IconButton'
 import { MessageList } from '@/components/MessageList'
@@ -10,6 +9,8 @@ import { DialogTitle } from '@/components/DialogTitle'
 import { DialogInput } from '@/components/DialogInput'
 import { EmojiModel } from '@/components/EmojiModel'
 import { useState, MouseEvent } from 'react'
+import { MenuTab } from '@/components/MenuTab'
+import { SearchInput } from '@/components/SearchInput'
 
 export default function Home() {
   const [emojiShow, setEmojiShow] = useState(false)
@@ -22,7 +23,7 @@ export default function Home() {
   }, {
     id: "contact-4"
   },]
-  const messages = [{
+  const defaultMsg = [{
     id: "1111-aaaa-bbbb-cccc",
     data: "你好",
     avatar: "./digital-person.png",
@@ -34,6 +35,10 @@ export default function Home() {
     name: "ChatGPT-4"
   },]
 
+  const [messages, setMessages] = useState(defaultMsg)
+  const [tabIndex, setTabIndex] = useState(0)
+  const [user, setUser] = useState()
+
   const onEmojiSelect = (e: MouseEvent) => {
     const emoji = (e.target as HTMLElement).nodeName === "BUTTON"
     if (emoji) {
@@ -43,11 +48,22 @@ export default function Home() {
   }
   const sendMessage = (message: string) => {
     console.log(message)
+    setMessages([...messages, {
+      id: Math.random().toFixed(6).slice(2),
+      data: message,
+      avatar: "./vercel.svg",
+      name: "ChatGPT-4"
+    }])
   }
   return <>
     <div className={styles.FunctionalMenu}>
       <MyCard />
-      {contacts.map(c => <ContactCard key={c.id} />)}
+      <SearchInput />
+      <MenuTab tabIndex={tabIndex} setTabIndex={setTabIndex}>
+        {tabIndex === 0 && contacts.map(c => <ContactCard key={c.id} />)}
+        {tabIndex === 1 && contacts.map(c => <div>321</div>)}
+        {tabIndex === 2 && contacts.map(c => <div>123</div>)}
+      </MenuTab>
     </div>
     <div className={styles.DialogDetail}>
       <DialogTitle />
