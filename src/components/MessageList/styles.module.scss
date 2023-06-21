@@ -47,7 +47,7 @@
                 margin: 0;
             }
 
-            p {
+            pre {
                 background-color: #fff;
                 border-radius: 3px;
                 padding: 9px 13px;
@@ -56,13 +56,14 @@
                 margin: 0 10px;
                 min-height: 1rem;
                 line-height: 1.6;
+                white-space: break-spaces;
             }
 
-            p:before {
+            pre:before {
                 position: absolute;
                 top: 14px;
                 border: 6px solid transparent;
-                content: " ";
+                content: "";
                 right: 100%;
                 border-right-color: #fff;
                 border-right-width: 4px;

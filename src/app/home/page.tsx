@@ -8,9 +8,10 @@ import { MyCard } from '@/components/UserCard'
 import { DialogTitle } from '@/components/DialogTitle'
 import { DialogInput } from '@/components/DialogInput'
 import { EmojiModel } from '@/components/EmojiModel'
-import { useState, MouseEvent } from 'react'
+import { useState, MouseEvent, useRef } from 'react'
 import { MenuTab } from '@/components/MenuTab'
 import { SearchInput } from '@/components/SearchInput'
+import assert from "http-assert"
 
 export default function Home() {
   const [emojiShow, setEmojiShow] = useState(false)
@@ -38,6 +39,7 @@ export default function Home() {
   const [messages, setMessages] = useState(defaultMsg)
   const [tabIndex, setTabIndex] = useState(0)
   const [user, setUser] = useState()
+  const pre = useRef<HTMLPreElement>(null)
 
   const onEmojiSelect = (e: MouseEvent) => {
     const emoji = (e.target as HTMLElement).nodeName === "BUTTON"
@@ -46,14 +48,18 @@ export default function Home() {
     }
     setEmojiShow(false)
   }
-  const sendMessage = (message: string) => {
-    console.log(message)
+  const sendMessage = () => {
+    const dom = pre.current
+    assert(dom)
+
     setMessages([...messages, {
       id: Math.random().toFixed(6).slice(2),
-      data: message,
+      data: dom.innerHTML,
       avatar: "./vercel.svg",
       name: "ChatGPT-4"
     }])
+
+    dom.innerHTML = ""
   }
   return <>
     <div className={styles.FunctionalMenu}>
@@ -69,7 +75,9 @@ export default function Home() {
       <DialogTitle />
       <MessageList messages={messages} />
       <DialogInput onEmoji={() => setEmojiShow(true)}
-        onSend={sendMessage} />
+        onSend={sendMessage} >
+        <pre contentEditable={true} ref={pre} />
+      </DialogInput>
     </div>
     {/* Emoji select model */}
     {emojiShow && <EmojiModel onSelect={onEmojiSelect} />}

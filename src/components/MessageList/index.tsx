@@ -18,7 +18,7 @@ const MessageItem = (props: Message) => {
         </div>
         <div className={styles.Data}>
             <h4>{props.name}</h4>
-            <p>{props.data}</p>
+            <pre>{props.data}</pre>
         </div>
     </div>
 }

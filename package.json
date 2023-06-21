@@ -18,6 +18,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@types/http-assert": "^1.5.3",
     "@types/node": "20.2.5",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",

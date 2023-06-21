@@ -1,11 +1,12 @@
-import { HTMLAttributes, PropsWithChildren } from "react"
+import { PropsWithChildren } from "react"
 import styles from "./styles.module.scss"
 
 interface DialogInputProps {
     onEmoji: () => void
-    onSend: (message: string) => void
+    onSend: () => void
 }
 export const DialogInput = (props: PropsWithChildren<DialogInputProps>) => {
+
 
     return <div className={styles.DialogInput}>
         <div className={styles.Tools}>
@@ -20,10 +21,10 @@ export const DialogInput = (props: PropsWithChildren<DialogInputProps>) => {
                 </svg>
             </button>
         </div>
-        <pre contentEditable={true} />
+        {props.children}
         <div className={styles.Actions}>
             <span>按下Cmd+Enter换行</span>
-            <button onClick={() => props.onSend("hello")}>发送</button>
+            <button onClick={props.onSend}>发送</button>
         </div>
     </div>
 }
