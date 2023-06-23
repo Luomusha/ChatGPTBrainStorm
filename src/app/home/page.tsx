@@ -3,7 +3,7 @@
 import styles from './page.module.scss'
 import { IconButton } from '@/components/IconButton'
 import { MessageList } from '@/components/MessageList'
-import { ContactCard } from '@/components/ContactCard'
+import { ConversationCard } from '@/components/ConversationCard'
 import { MyCard } from '@/components/UserCard'
 import { DialogTitle } from '@/components/DialogTitle'
 import { DialogInput } from '@/components/DialogInput'
@@ -12,6 +12,7 @@ import { useState, MouseEvent, useRef } from 'react'
 import { MenuTab } from '@/components/MenuTab'
 import { SearchInput } from '@/components/SearchInput'
 import assert from "http-assert"
+import { ContactCard } from '@/components/ContactCard'
 
 export default function Home() {
   const [emojiShow, setEmojiShow] = useState(false)
@@ -66,8 +67,8 @@ export default function Home() {
       <MyCard />
       <SearchInput />
       <MenuTab tabIndex={tabIndex} setTabIndex={setTabIndex}>
-        {tabIndex === 0 && contacts.map(c => <ContactCard key={c.id} />)}
-        {tabIndex === 1 && contacts.map(c => <div>321</div>)}
+        {tabIndex === 0 && contacts.map(c => <ConversationCard key={c.id} />)}
+        {tabIndex === 1 && contacts.map(c => <ContactCard />)}
         {tabIndex === 2 && contacts.map(c => <div>123</div>)}
       </MenuTab>
     </div>

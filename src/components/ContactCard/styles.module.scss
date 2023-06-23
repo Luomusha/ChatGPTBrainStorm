@@ -1,48 +1,25 @@
 .ContactCard {
     display: flex;
-    flex-direction: row;
-    color: #fff;
-    padding: 12px 18px 11px;
+    align-items: center;
+    padding: 10px 18px 9px;
     border-bottom: 1px solid #292c33;
-    background-color: #2e3641;
 
     img {
-        width: 40px;
-        height: 40px;
-        border-radius: 2px;
-        margin-right: 10px;
+        width: 30px;
+        height: 30px;
         object-fit: cover;
+        margin-right: 10px;
     }
 
-    .Context {
-        flex: 1;
-
-        .Info {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-
-            h3 {
-                font-weight: 400;
-                font-size: 13px;
-                color: #fff;
-                line-height: 20px;
-                margin: 0;
-            }
-
-            span {
-                color: #6b6f7c;
-                font-size: 13px;
-                text-align: right;
-            }
-        }
-
-        .Message {
-            color: #989898;
-            font-size: 13px;
-            white-space: nowrap;
-            word-wrap: normal;
-
-        }
+    h4 {
+        margin: 0;
+        color: #fff;
+        font-weight: 400;
+        font-size: 13px;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        word-wrap: normal;
     }
 }
