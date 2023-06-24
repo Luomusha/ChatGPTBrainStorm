@@ -13,10 +13,14 @@ import { MenuTab } from '@/components/MenuTab'
 import { SearchInput } from '@/components/SearchInput'
 import assert from "http-assert"
 import { ContactCard } from '@/components/ContactCard'
+import { ContactDetail } from '@/components/ContactDetail'
+import { Contact, Conversation } from '../../../types'
+
+
 
 export default function Home() {
   const [emojiShow, setEmojiShow] = useState(false)
-  const contacts = [{
+  const [conversations, setConversation] = useState<Conversation[]>([{
     id: "contact-1"
   }, {
     id: "contact-2"
@@ -24,7 +28,29 @@ export default function Home() {
     id: "contact-3"
   }, {
     id: "contact-4"
-  },]
+  }])
+
+  const [contacts, setContacts] = useState<Contact[]>([{
+    id: "contact-1",
+    name: "小雯",
+    signature: "产品经理",
+    avatar: "profile.jpeg",
+    gender: "female"
+  }, {
+    id: "contact-2",
+    name: "李绝顶",
+    signature: "资深开发",
+    avatar: "li.jpeg",
+    gender: "male"
+  }, {
+    id: "contact-2",
+    name: "Nana",
+    signature: "UI/UX",
+    avatar: "ui.jpeg",
+    gender: "male"
+  },])
+  const [contactIndex, setContactIndex] = useState(-1)
+
   const defaultMsg = [{
     id: "1111-aaaa-bbbb-cccc",
     data: "你好",
@@ -67,19 +93,30 @@ export default function Home() {
       <MyCard />
       <SearchInput />
       <MenuTab tabIndex={tabIndex} setTabIndex={setTabIndex}>
-        {tabIndex === 0 && contacts.map(c => <ConversationCard key={c.id} />)}
-        {tabIndex === 1 && contacts.map(c => <ContactCard />)}
+        {tabIndex === 0 && conversations.map(c => <ConversationCard key={c.id} />)}
+        {tabIndex === 1 && contacts.map((c, index) => <ContactCard key={c.id}
+          contact={c}
+          index={index}
+          onItemClick={setContactIndex} />)}
         {tabIndex === 2 && contacts.map(c => <div>123</div>)}
       </MenuTab>
     </div>
-    <div className={styles.DialogDetail}>
-      <DialogTitle />
-      <MessageList messages={messages} />
-      <DialogInput onEmoji={() => setEmojiShow(true)}
-        onSend={sendMessage} >
-        <pre contentEditable={true} ref={pre} />
-      </DialogInput>
+
+    <div className={styles.MainPanel}>
+      {tabIndex === 0 && <div className={styles.DialogDetail}>
+        <DialogTitle />
+        <MessageList messages={messages} />
+        <DialogInput onEmoji={() => setEmojiShow(true)}
+          onSend={sendMessage} >
+          <pre contentEditable={true} ref={pre} />
+        </DialogInput>
+      </div>}
+      {tabIndex === 1 && <div className={styles.ContactDetail}>
+        <DialogTitle />
+        <ContactDetail contact={contacts[contactIndex]} />
+      </div>}
     </div>
+
     {/* Emoji select model */}
     {emojiShow && <EmojiModel onSelect={onEmojiSelect} />}
   </>
