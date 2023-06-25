@@ -18,9 +18,9 @@ const MessageItem = (props: Message) => {
         </div>
         <div className={styles.Data}>
             <h4>{props.name}</h4>
-            <pre>{props.data}</pre>
+            <pre dangerouslySetInnerHTML={{ __html: props.data }}></pre>
         </div>
-    </div>
+    </div >
 }
 
 export const MessageList = (props: MessageItemProps) => {

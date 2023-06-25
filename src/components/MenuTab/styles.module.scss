@@ -24,4 +24,12 @@
             height: 24px;
         }
     }
+
+    button[data-active=true] {
+        svg {
+            path {
+                fill: rgb(95, 172, 72);
+            }
+        }
+    }
 }

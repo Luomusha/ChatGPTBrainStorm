@@ -6,6 +6,6 @@ interface DialogTitleProps extends HTMLAttributes<HTMLButtonElement> {
 }
 export const DialogTitle = (props: PropsWithChildren<DialogTitleProps>) => {
     return <div className={styles.DialogTitle}>
-        ZZZ
+        <a>文件传输助手</a>
     </div>
 }
