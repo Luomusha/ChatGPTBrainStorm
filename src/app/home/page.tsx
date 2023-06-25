@@ -75,7 +75,7 @@ export default function Home() {
     }
     setEmojiShow(false)
   }
-  const sendMessage = () => {
+  const sendMessage = async () => {
     const dom = pre.current
     assert(dom)
 
@@ -87,6 +87,23 @@ export default function Home() {
     }])
 
     dom.innerHTML = ""
+
+    const response = await fetch('/api/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/event-stream'
+      },
+      body: JSON.stringify({
+        "messages": 123
+      })
+    })
+    assert(response.body)
+    const reader = response.body.pipeThrough(new TextDecoderStream()).getReader()
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      console.log('Received', value);
+    }
   }
   return <>
     <div className={styles.FunctionalMenu}>
