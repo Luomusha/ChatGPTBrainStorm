@@ -15,14 +15,16 @@
 
     h4 {
         margin: 0;
-        color: #fff;
-        font-weight: 400;
-        font-size: 13px;
-        width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
         white-space: nowrap;
         word-wrap: normal;
+        font-weight: 400;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 14px;
+        color: #888;
     }
 
     button {

@@ -12,7 +12,7 @@
     "http-assert": "^1.5.0",
     "next": "13.4.4",
     "normalize.css": "^8.0.1",
-    "openai": "^3.2.1",
+    "openai": "^3.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.0.4"

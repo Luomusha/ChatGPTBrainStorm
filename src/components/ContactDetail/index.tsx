@@ -9,7 +9,7 @@ export const ContactDetail = (props: PropsWithChildren<ContactDetailProps>) => {
     return <div className={styles.ContactDetail}>
         <img src={props.contact?.avatar} alt="" />
         <h4>{props.contact?.name}</h4>
-        <div>{props.contact?.signature}</div>
+        <p>{props.contact?.signature}</p>
         <button>发送消息</button>
     </div>
 }

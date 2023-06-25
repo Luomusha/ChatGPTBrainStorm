@@ -45,7 +45,7 @@ export default function Home() {
   }, {
     id: "contact-2",
     name: "Nana",
-    signature: "UI/UX",
+    signature: "UI/UX设计总监",
     avatar: "ui.jpeg",
     gender: "male"
   },])
