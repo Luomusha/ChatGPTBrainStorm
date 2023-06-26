@@ -54,13 +54,13 @@ export default function Home() {
   const defaultMsg = [{
     id: "1111-aaaa-bbbb-cccc",
     data: "你好",
-    avatar: "./digital-person.png",
+    avatar: "./ChatGPT.png",
     name: "ChatGPT-4"
   }, {
     id: "2222-aaaa-bbbb-cccc",
     data: "你好.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, molestias! Natus et recusandae delectus incidunt eos odit dolores iste inventore. Delectus inventore modi sed dignissimos dolorem mollitia illo adipisci laborum.",
-    avatar: "./vercel.svg",
-    name: "ChatGPT-4"
+    avatar: "./digital-person.png",
+    name: "用户"
   },]
 
   const [messages, setMessages] = useState(defaultMsg)
@@ -74,17 +74,26 @@ export default function Home() {
       console.log((e.target as HTMLElement).innerHTML)
     }
     setEmojiShow(false)
+    assert(pre.current)
+    pre.current.innerHTML += (e.target as HTMLElement).innerHTML
   }
   const sendMessage = async () => {
     const dom = pre.current
     assert(dom)
 
-    setMessages([...messages, {
+    const responseMessageId = Math.random().toFixed(6).slice(2)
+    const commitMsg = [...messages, {
       id: Math.random().toFixed(6).slice(2),
       data: dom.innerHTML,
-      avatar: "./vercel.svg",
+      avatar: "./ChatGPT.png",
+      name: "用户"
+    }, {
+      id: responseMessageId,
+      data: "...",
+      avatar: "./digital-person.png",
       name: "ChatGPT-4"
-    }])
+    }]
+    setMessages(commitMsg)
 
     dom.innerHTML = ""
 
@@ -103,6 +112,11 @@ export default function Home() {
       const { value, done } = await reader.read();
       if (done) break;
       console.log('Received', value);
+
+      const msg = commitMsg.find(msg => msg.id === responseMessageId)
+      assert(msg)
+      msg.data = value
+      setMessages(commitMsg)
     }
   }
   return <>
