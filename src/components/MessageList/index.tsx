@@ -1,4 +1,4 @@
-import { HTMLAttributes, PropsWithChildren } from "react"
+import { HTMLAttributes, PropsWithChildren, useEffect, useRef } from "react"
 import styles from "./styles.module.scss"
 
 interface Message {
@@ -24,7 +24,13 @@ const MessageItem = (props: Message) => {
 }
 
 export const MessageList = (props: MessageItemProps) => {
-    return <div className={styles.ChatList}>
+    const list = useRef<HTMLDivElement>(null)
+    useEffect(() => {
+        if (!list) return
+        if (!list.current) return
+        list.current.scrollBy(0, 1000)
+    }, [props.messages])
+    return <div className={styles.ChatList} ref={list}>
         {props.messages.map(m => <MessageItem key={m.id} {...m} />)}
     </div>
 }

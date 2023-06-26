@@ -43,7 +43,7 @@ export default function Home() {
     avatar: "li.jpeg",
     gender: "male"
   }, {
-    id: "contact-2",
+    id: "contact-3",
     name: "Nana",
     signature: "UI/UX设计总监",
     avatar: "ui.jpeg",
@@ -89,7 +89,7 @@ export default function Home() {
       name: "用户"
     }, {
       id: responseMessageId,
-      data: "...",
+      data: "",
       avatar: "./digital-person.png",
       name: "ChatGPT-4"
     }]
@@ -115,8 +115,8 @@ export default function Home() {
 
       const msg = commitMsg.find(msg => msg.id === responseMessageId)
       assert(msg)
-      msg.data = value
-      setMessages(commitMsg)
+      msg.data += value
+      setMessages(JSON.parse(JSON.stringify(commitMsg)))
     }
   }
   return <>
